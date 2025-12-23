@@ -1,10 +1,32 @@
 <!doctype html>
-<meta charset="utf-8" />
-<title>Self OS</title>
-<script>
-  const params = new URLSearchParams(location.search);
-  const task = params.get("task");
-  if (task) {
-    location.href = `selfos://task/${task}`;
-  }
-</script>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="color-scheme" content="dark light" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Self OS</title>
+      <style>
+        html, body {
+          margin: 0;
+          height: 100%;
+          background: #0b0f14;
+          color: #0b0f14;
+        }
+        @media (prefers-color-scheme: light) {
+          html, body { background: #f9fafb; color: #f9fafb; }
+        }
+      </style>
+      <script>
+        (function () {
+          const params = new URLSearchParams(location.search);
+          const task = params.get("task");
+          if (task) {
+            location.replace(`selfos://task/${task}`);
+          }
+        })();
+      </script>
+    </head>
+    <body>
+      <noscript>Open Self OS from the app.</noscript>
+    </body>
+  </html>
