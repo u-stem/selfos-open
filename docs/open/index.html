@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
   <html lang="en">
     <head>
       <meta charset="utf-8" />
@@ -15,18 +15,32 @@
         @media (prefers-color-scheme: light) {
           html, body { background: #f9fafb; color: #f9fafb; }
         }
+        .hint {
+          font: 14px/1.5 system-ui, -apple-system, sans-serif;
+          color: #9ca3af;
+          padding: 24px;
+        }
       </style>
       <script>
         (function () {
           const params = new URLSearchParams(location.search);
           const task = params.get("task");
+          const habit = params.get("habit");
+
           if (task) {
             location.replace(`selfos://task/${task}`);
+            return;
+          }
+
+          if (habit) {
+            location.replace(`selfos://habit/${habit}`);
+            return;
           }
         })();
       </script>
     </head>
     <body>
       <noscript>Open Self OS from the app.</noscript>
+      <div class="hint">Open Self OS from the app.</div>
     </body>
   </html>
